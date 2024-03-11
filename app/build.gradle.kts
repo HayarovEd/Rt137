@@ -6,11 +6,11 @@ plugins {
 }
 
 android {
-    namespace = "com.edurda77"
+    namespace = "com.abc.def.g"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.edurda77"
+        applicationId = "com.abc.def.g"
         minSdk = 24
         targetSdk = 34
         versionCode = 1

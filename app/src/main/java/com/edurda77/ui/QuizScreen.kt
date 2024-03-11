@@ -17,6 +17,7 @@ import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
@@ -43,8 +44,7 @@ fun QuizScreen(
     taskQuiz: TaskQuiz,
     sizeQuiz: Int
 ) {
-    val selectedAnswer = remember { mutableStateOf("") }
-    val context = LocalContext.current
+    val selectedAnswer = remember { mutableIntStateOf(-1) }
     Box(
         modifier = modifier
             .fillMaxSize()
@@ -90,15 +90,15 @@ fun QuizScreen(
                         .fillMaxWidth(),
                     shape = RoundedCornerShape(20.dp),
                     colors = ButtonDefaults.buttonColors(
-                        containerColor = if (selectedAnswer.value == stringResource(id = taskQuiz.answer1)) grey else white
+                        containerColor = if (selectedAnswer.intValue == taskQuiz.answer1) grey else white
                     ),
                     border = BorderStroke(
-                        width = if (selectedAnswer.value == stringResource(id = taskQuiz.answer1)) 0.dp else 1.dp,
+                        width = if (selectedAnswer.intValue == taskQuiz.answer1) 0.dp else 1.dp,
                         color = grey
                     ),
                     contentPadding = PaddingValues(vertical = 16.dp),
                     onClick = {
-                        selectedAnswer.value = context.getString(taskQuiz.answer1)
+                        selectedAnswer.intValue = taskQuiz.answer1
                     })
                 {
                     Text(
@@ -106,7 +106,7 @@ fun QuizScreen(
                         style = TextStyle(
                             fontSize = 20.sp,
                             fontFamily = FontFamily(Font(R.font.inter)),
-                            fontWeight = if (selectedAnswer.value == stringResource(id = taskQuiz.answer1)) FontWeight(
+                            fontWeight = if (selectedAnswer.value == taskQuiz.answer1) FontWeight(
                                 500
                             ) else FontWeight(400),
                             color = black
@@ -119,15 +119,15 @@ fun QuizScreen(
                         .fillMaxWidth(),
                     shape = RoundedCornerShape(20.dp),
                     colors = ButtonDefaults.buttonColors(
-                        containerColor = if (selectedAnswer.value == stringResource(id = taskQuiz.answer2)) grey else white
+                        containerColor = if (selectedAnswer.intValue == taskQuiz.answer2) grey else white
                     ),
                     border = BorderStroke(
-                        width = if (selectedAnswer.value == stringResource(id = taskQuiz.answer2)) 0.dp else 1.dp,
+                        width = if (selectedAnswer.intValue == taskQuiz.answer2) 0.dp else 1.dp,
                         color = grey
                     ),
                     contentPadding = PaddingValues(vertical = 16.dp),
                     onClick = {
-                        selectedAnswer.value = context.getString(taskQuiz.answer2)
+                        selectedAnswer.intValue = taskQuiz.answer2
                     })
                 {
                     Text(
@@ -135,7 +135,7 @@ fun QuizScreen(
                         style = TextStyle(
                             fontSize = 20.sp,
                             fontFamily = FontFamily(Font(R.font.inter)),
-                            fontWeight = if (selectedAnswer.value == stringResource(id = taskQuiz.answer2)) FontWeight(
+                            fontWeight = if (selectedAnswer.intValue == taskQuiz.answer2) FontWeight(
                                 500
                             ) else FontWeight(400),
                             color = black
@@ -148,15 +148,15 @@ fun QuizScreen(
                         .fillMaxWidth(),
                     shape = RoundedCornerShape(20.dp),
                     colors = ButtonDefaults.buttonColors(
-                        containerColor = if (selectedAnswer.value == stringResource(id = taskQuiz.answer3)) grey else white
+                        containerColor = if (selectedAnswer.intValue == taskQuiz.answer3) grey else white
                     ),
                     border = BorderStroke(
-                        width = if (selectedAnswer.value == stringResource(id = taskQuiz.answer3)) 0.dp else 1.dp,
+                        width = if (selectedAnswer.intValue == taskQuiz.answer3) 0.dp else 1.dp,
                         color = grey
                     ),
                     contentPadding = PaddingValues(vertical = 16.dp),
                     onClick = {
-                        selectedAnswer.value = context.getString(taskQuiz.answer3)
+                        selectedAnswer.intValue = taskQuiz.answer3
                     })
                 {
                     Text(
@@ -164,7 +164,7 @@ fun QuizScreen(
                         style = TextStyle(
                             fontSize = 20.sp,
                             fontFamily = FontFamily(Font(R.font.inter)),
-                            fontWeight = if (selectedAnswer.value == stringResource(id = taskQuiz.answer3)) FontWeight(
+                            fontWeight = if (selectedAnswer.intValue == taskQuiz.answer3) FontWeight(
                                 500
                             ) else FontWeight(400),
                             color = black
@@ -175,7 +175,7 @@ fun QuizScreen(
                 Button(
                     modifier = modifier
                         .fillMaxWidth(),
-                    enabled = selectedAnswer.value.isNotBlank(),
+                    enabled = selectedAnswer.intValue!=-1,
                     shape = RoundedCornerShape(24.dp),
                     colors = ButtonDefaults.buttonColors(
                         containerColor = orange
@@ -203,6 +203,6 @@ fun QuizScreen(
 @Composable
 private fun ViewQuizScreen() {
     QuizScreen(
-        taskQuiz = tasks[0],
-        sizeQuiz = 10)
+        taskQuiz = tasks[3],
+        sizeQuiz = tasks.size)
 }

@@ -62,5 +62,13 @@
     <string name="from">из</string>
     <string name="next">Далее</string>
 
+    <string name="good_job">Хорошая работа!</string>
+    <string name="right_answers">Правильные ответы</string>
+    <string name="correct">Верно</string>
+    <string name="incorrect">Неверно</string>
+    <string name="result">ИТОГ</string>
+    <string name="again">Заново</string>
+    <string name="complete_quiz">Завершить квиз</string>
+
 
 </resources>

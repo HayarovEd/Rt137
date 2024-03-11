@@ -1,5 +1,7 @@
 package com.edurda77.ui
 
+import android.content.Intent
+import android.net.Uri
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Box
@@ -20,6 +22,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.TextStyle
@@ -38,8 +41,11 @@ import com.edurda77.ui.theme.white
 @Composable
 fun SelectorScreen(
     modifier: Modifier = Modifier,
-    event: (MainEventRt137) -> Unit
+    event: (MainEventRt137) -> Unit,
+    url: String
 ) {
+    val context = LocalContext.current
+
     Box(
         modifier = modifier.fillMaxSize()
     ) {
@@ -55,72 +61,80 @@ fun SelectorScreen(
                 .padding(horizontal = 13.dp)
                 .fillMaxWidth()
         ) {
-            Card(
-                modifier = modifier
-                    .fillMaxWidth(),
-                shape = RoundedCornerShape(24.dp),
-                border = BorderStroke(width = 3.dp, color = orange),
-                colors = CardDefaults.cardColors(
-                    containerColor = white
-                )
-            ) {
-                Column(
+            if (url.isNotBlank()) {
+                Card(
                     modifier = modifier
-                        .fillMaxWidth()
-                        .padding(start = 15.dp, end = 15.dp, top = 36.dp, bottom = 16.dp)
+                        .fillMaxWidth(),
+                    shape = RoundedCornerShape(24.dp),
+                    border = BorderStroke(width = 3.dp, color = orange),
+                    colors = CardDefaults.cardColors(
+                        containerColor = white
+                    )
                 ) {
-                    Button(
+                    Column(
                         modifier = modifier
-                            .fillMaxWidth(),
-                        shape = RoundedCornerShape(24.dp),
-                        colors = ButtonDefaults.buttonColors(
-                            containerColor = orange
-                        ),
-                        contentPadding = PaddingValues(vertical = 12.dp),
-                        onClick = {  })
-                    {
+                            .fillMaxWidth()
+                            .padding(start = 15.dp, end = 15.dp, top = 36.dp, bottom = 16.dp)
+                    ) {
+
+                        Button(
+                            modifier = modifier
+                                .fillMaxWidth(),
+                            shape = RoundedCornerShape(24.dp),
+                            colors = ButtonDefaults.buttonColors(
+                                containerColor = orange
+                            ),
+                            contentPadding = PaddingValues(vertical = 12.dp),
+                            onClick = {
+                                val uri = Uri.parse(url)
+                                val intent = Intent(Intent.ACTION_VIEW, uri)
+                                context.startActivity(intent)
+                            })
+                        {
+                            Text(
+                                text = stringResource(id = R.string.put),
+                                style = TextStyle(
+                                    fontSize = 30.sp,
+                                    fontFamily = FontFamily(Font(R.font.inter)),
+                                    fontWeight = FontWeight(600),
+                                    color = white
+                                )
+                            )
+                        }
+
+                        Spacer(modifier = modifier.height(28.dp))
                         Text(
-                            text = stringResource(id = R.string.put),
+                            modifier = modifier
+                                .fillMaxWidth(),
+                            text = stringResource(id = R.string.eighteen_plus),
                             style = TextStyle(
                                 fontSize = 30.sp,
                                 fontFamily = FontFamily(Font(R.font.inter)),
                                 fontWeight = FontWeight(600),
-                                color = white
+                                color = orange,
+                                textAlign = TextAlign.Center
                             )
                         )
                     }
-                    Spacer(modifier = modifier.height(28.dp))
-                    Text(
-                        modifier = modifier
-                            .fillMaxWidth(),
-                        text = stringResource(id = R.string.eighteen_plus),
-                        style = TextStyle(
-                            fontSize = 30.sp,
-                            fontFamily = FontFamily(Font(R.font.inter)),
-                            fontWeight = FontWeight(600),
-                            color = orange,
-                            textAlign = TextAlign.Center
-                        )
-                    )
                 }
-            }
-            Spacer(modifier = modifier.height(37.dp))
-            Text(
-                modifier = modifier
-                    .fillMaxWidth(),
-                text = stringResource(id = R.string.warning_put),
-                style = TextStyle(
-                    fontSize = 19.sp,
-                    fontFamily = FontFamily(Font(R.font.inter)),
-                    fontWeight = FontWeight(800),
-                    color = white,
-                    textAlign = TextAlign.Center
+                Spacer(modifier = modifier.height(37.dp))
+                Text(
+                    modifier = modifier
+                        .fillMaxWidth(),
+                    text = stringResource(id = R.string.warning_put),
+                    style = TextStyle(
+                        fontSize = 19.sp,
+                        fontFamily = FontFamily(Font(R.font.inter)),
+                        fontWeight = FontWeight(800),
+                        color = white,
+                        textAlign = TextAlign.Center
+                    )
                 )
-            )
+            }
         }
         Column(
             modifier = modifier
-                .align(alignment = Alignment.BottomCenter)
+                .align(alignment = if (url.isNotBlank()) Alignment.BottomCenter else Alignment.Center)
                 .padding(start = 64.dp, end = 64.dp, bottom = 40.dp)
                 .fillMaxWidth()
         ) {
@@ -158,8 +172,7 @@ fun SelectorScreen(
                 border = BorderStroke(width = 1.dp, color = orange),
                 contentPadding = PaddingValues(vertical = 19.dp),
                 onClick = {
-                    event(MainEventRt137.ResetQuiz)
-                    event(MainEventRt137.OnChangeStatusMock(MockRt137.Quiz))
+                    event(MainEventRt137.OnChangeStatusMock(MockRt137.Start))
                 })
             {
                 Text(

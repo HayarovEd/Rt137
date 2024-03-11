@@ -1,10 +1,7 @@
 package com.edurda77.ui
 
-import android.content.Intent
-import android.net.Uri
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
-import androidx.compose.ui.platform.LocalContext
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.edurda77.domain.model.tasks
 import com.edurda77.ui.state.ApplicationRt137State
@@ -17,7 +14,6 @@ fun BaseScene(
 ) {
     val state = viewModel.state.collectAsState()
     val event = viewModel::onEvent
-    val context = LocalContext.current
 
     when (val applicationStateRt137 = state.value.applicationRt137State) {
         ApplicationRt137State.Loading -> {
@@ -45,6 +41,7 @@ fun BaseScene(
 
                 MockRt137.Selector -> {
                     SelectorScreen(
+                        url = state.value.url,
                         event = event,
                     )
                 }
@@ -55,13 +52,14 @@ fun BaseScene(
                         event = event,
                     )
                 }
-            }
-        }
 
-        is ApplicationRt137State.Success -> {
-            val uri = Uri.parse(applicationStateRt137.url)
-            val intent = Intent(Intent.ACTION_VIEW, uri)
-            context.startActivity(intent)
+                MockRt137.Start -> {
+                    StartScreen(
+                        sizeQuiz = tasks.size,
+                        event = event
+                    )
+                }
+            }
         }
     }
 }

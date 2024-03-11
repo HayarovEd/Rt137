@@ -1,5 +1,6 @@
 package com.edurda77.ui
 
+import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
@@ -47,6 +48,7 @@ fun QuizScreen(
     event: (MainEventRt137) -> Unit
 ) {
     val selectedAnswer = remember { mutableIntStateOf(-1) }
+    BackHandler {}
     Box(
         modifier = modifier
             .fillMaxSize()

@@ -19,7 +19,7 @@ class MainViewModelRt137 @Inject constructor(
     private var _state = MutableStateFlow(MainStateRt137())
     val state = _state.asStateFlow()
 
-    init {
+    /*init {
         viewModelScope.launch {
             val savedUrl = remoteRepositoryRt137.getSharedUrl()
             if (savedUrl.isNullOrBlank()) {
@@ -27,12 +27,13 @@ class MainViewModelRt137 @Inject constructor(
                 getUrl()
             } else {
                 _state.value.copy(
-                    applicationRt137State = ApplicationRt137State.Success(savedUrl)
+                    applicationRt137State = ApplicationRt137State.Mock(MockRt137.Selector),
+                    url = savedUrl
                 )
                     .updateStateUI()
             }
         }
-    }
+    }*/
 
 
     private suspend fun getData() {
@@ -62,7 +63,8 @@ class MainViewModelRt137 @Inject constructor(
             is ResourceRt137.Success -> {
                 if (result.data != null) {
                     _state.value.copy(
-                        applicationRt137State = ApplicationRt137State.Success(result.data)
+                        ApplicationRt137State.Mock(MockRt137.Selector),
+                        url = result.data
                     )
                         .updateStateUI()
                     remoteRepositoryRt137.setSharedUrl(result.data)

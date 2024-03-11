@@ -1,5 +1,6 @@
 package com.edurda77.ui
 
+import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -30,7 +31,6 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.edurda77.R
-import com.edurda77.domain.model.tasks
 import com.edurda77.ui.state.MainEventRt137
 import com.edurda77.ui.state.MockRt137
 import com.edurda77.ui.theme.black
@@ -46,6 +46,7 @@ fun ResultScreen(
     percent: Double,
     event: (MainEventRt137) -> Unit
 ) {
+    BackHandler {}
     Column(
         modifier = modifier
             .fillMaxSize()
@@ -163,8 +164,7 @@ fun ResultScreen(
             border = BorderStroke(width = 1.dp, color = orange),
             contentPadding = PaddingValues(vertical = 16.dp),
             onClick = {
-                event(MainEventRt137.OnChangeStatusMock(MockRt137.Quiz))
-                event(MainEventRt137.ResetQuiz)
+                event(MainEventRt137.OnChangeStatusMock(MockRt137.Start))
             })
         {
             Text(

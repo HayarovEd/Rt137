@@ -4,7 +4,7 @@
 
     <string name="put">Поставить</string>
     <string name="eighteen_plus">18+</string>
-    <string name="warning_put">Важно помнить, что ставки могут стоить вам дорого, поэтому играйте ответственно и рассмотрительно!</string>
+    <string name="warning_put">Важно помнить, что ставки могут стоить вам дорого, поэтому играйте ответственно!</string>
     <string name="tournaments">Турниры</string>
     <string name="quiz">КВИЗ</string>
 
@@ -72,5 +72,11 @@
 
     <string name="statistic">Центр статистики</string>
 
+    <string name="sport">СПОРТ</string>
+    <string name="base_level">КВИЗ - БАЗОВЫЙ УРОВЕНЬ</string>
+    <string name="questions">вопросов</string>
+    <string name="description">ОПИСАНИЕ</string>
+    <string name="football_quiz">Викторина на футбольную тематику!</string>
+    <string name="begin">Начать</string>
 
 </resources>

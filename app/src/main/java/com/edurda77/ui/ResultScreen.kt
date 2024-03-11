@@ -4,6 +4,7 @@ import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
@@ -47,158 +48,168 @@ fun ResultScreen(
     event: (MainEventRt137) -> Unit
 ) {
     BackHandler {}
-    Column(
+    Box (
         modifier = modifier
             .fillMaxSize()
             .background(color = white)
             .padding(24.dp)
-    ) {
-        Text(
-            modifier = modifier.fillMaxWidth(),
-            text = stringResource(id = R.string.good_job),
-            style = TextStyle(
-                fontSize = 24.sp,
-                fontFamily = FontFamily(Font(R.font.inter)),
-                fontWeight = FontWeight(500),
-                color = black,
-                textAlign = TextAlign.Center
-            )
-        )
-        Spacer(modifier = modifier.height(16.dp))
-        Image(
-            modifier = modifier.fillMaxWidth(),
-            painter = painterResource(id = R.drawable.image_result),
-            contentDescription = "",
-            contentScale = ContentScale.FillWidth
-        )
-        Spacer(modifier = modifier.height(47.dp))
-        Text(
-            text = stringResource(id = R.string.right_answers),
-            style = TextStyle(
-                fontSize = 20.sp,
-                fontFamily = FontFamily(Font(R.font.inter)),
-                fontWeight = FontWeight(500),
-                color = black,
-            )
-        )
-        Spacer(modifier = modifier.height(33.dp))
-        Row(
-            modifier = modifier.fillMaxWidth(),
-            verticalAlignment = Alignment.CenterVertically
+    ){
+        Column(
+            modifier = modifier
+                .fillMaxWidth()
         ) {
-            Column(
-                modifier = modifier.weight(1f)
-            ) {
-                Text(
-                    text = stringResource(id = R.string.correct),
-                    style = TextStyle(
-                        fontSize = 12.sp,
-                        fontFamily = FontFamily(Font(R.font.inter)),
-                        fontWeight = FontWeight(500),
-                        color = grey,
-                    )
+            Text(
+                modifier = modifier.fillMaxWidth(),
+                text = stringResource(id = R.string.good_job),
+                style = TextStyle(
+                    fontSize = 24.sp,
+                    fontFamily = FontFamily(Font(R.font.inter)),
+                    fontWeight = FontWeight(500),
+                    color = black,
+                    textAlign = TextAlign.Center
                 )
-                Spacer(modifier = modifier.height(8.dp))
+            )
+            Spacer(modifier = modifier.height(16.dp))
+            Image(
+                modifier = modifier.fillMaxWidth(),
+                painter = painterResource(id = R.drawable.image_result),
+                contentDescription = "",
+                contentScale = ContentScale.FillWidth
+            )
+            Spacer(modifier = modifier.height(47.dp))
+            Text(
+                text = stringResource(id = R.string.right_answers),
+                style = TextStyle(
+                    fontSize = 20.sp,
+                    fontFamily = FontFamily(Font(R.font.inter)),
+                    fontWeight = FontWeight(500),
+                    color = black,
+                )
+            )
+            Spacer(modifier = modifier.height(33.dp))
+            Row(
+                modifier = modifier.fillMaxWidth(),
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                Column(
+                    modifier = modifier.weight(1f)
+                ) {
+                    Text(
+                        text = stringResource(id = R.string.correct),
+                        style = TextStyle(
+                            fontSize = 12.sp,
+                            fontFamily = FontFamily(Font(R.font.inter)),
+                            fontWeight = FontWeight(500),
+                            color = grey,
+                        )
+                    )
+                    Spacer(modifier = modifier.height(8.dp))
+                    Text(
+                        text = countCorrect.toString(),
+                        style = TextStyle(
+                            fontSize = 20.sp,
+                            fontFamily = FontFamily(Font(R.font.inter)),
+                            fontWeight = FontWeight(500),
+                            color = black,
+                        )
+                    )
+                }
+                Column(
+                    modifier = modifier.weight(1f)
+                ) {
+                    Text(
+                        text = stringResource(id = R.string.incorrect),
+                        style = TextStyle(
+                            fontSize = 12.sp,
+                            fontFamily = FontFamily(Font(R.font.inter)),
+                            fontWeight = FontWeight(500),
+                            color = grey,
+                        )
+                    )
+                    Spacer(modifier = modifier.height(8.dp))
+                    Text(
+                        text = countIncorrect.toString(),
+                        style = TextStyle(
+                            fontSize = 20.sp,
+                            fontFamily = FontFamily(Font(R.font.inter)),
+                            fontWeight = FontWeight(500),
+                            color = black,
+                        )
+                    )
+                }
+            }
+            Spacer(modifier = modifier.height(43.dp))
+            Text(
+                text = stringResource(id = R.string.result),
+                style = TextStyle(
+                    fontSize = 12.sp,
+                    fontFamily = FontFamily(Font(R.font.inter)),
+                    fontWeight = FontWeight(500),
+                    color = grey,
+                )
+            )
+            Spacer(modifier = modifier.height(8.dp))
+            Text(
+                text = percent.toString(),
+                style = TextStyle(
+                    fontSize = 20.sp,
+                    fontFamily = FontFamily(Font(R.font.inter)),
+                    fontWeight = FontWeight(500),
+                    color = black,
+                )
+            )
+        }
+        Column(
+            modifier = modifier
+                .align(Alignment.BottomCenter)
+                .fillMaxWidth()
+        ) {
+            Button(
+                modifier = modifier
+                    .fillMaxWidth(),
+                shape = RoundedCornerShape(20.dp),
+                colors = ButtonDefaults.buttonColors(
+                    containerColor = white
+                ),
+                border = BorderStroke(width = 1.dp, color = orange),
+                contentPadding = PaddingValues(vertical = 16.dp),
+                onClick = {
+                    event(MainEventRt137.OnChangeStatusMock(MockRt137.Start))
+                })
+            {
                 Text(
-                    text = countCorrect.toString(),
+                    text = stringResource(id = R.string.again),
                     style = TextStyle(
-                        fontSize = 20.sp,
+                        fontSize = 16.sp,
                         fontFamily = FontFamily(Font(R.font.inter)),
                         fontWeight = FontWeight(500),
-                        color = black,
+                        color = orange
                     )
                 )
             }
-            Column(
-                modifier = modifier.weight(1f)
-            ) {
+            Spacer(modifier = modifier.height(11.dp))
+            Button(
+                modifier = modifier
+                    .fillMaxWidth(),
+                shape = RoundedCornerShape(20.dp),
+                colors = ButtonDefaults.buttonColors(
+                    containerColor = orange
+                ),
+                contentPadding = PaddingValues(vertical = 16.dp),
+                onClick = {
+                    event(MainEventRt137.OnChangeStatusMock(MockRt137.Selector))
+                })
+            {
                 Text(
-                    text = stringResource(id = R.string.incorrect),
+                    text = stringResource(id = R.string.complete_quiz),
                     style = TextStyle(
-                        fontSize = 12.sp,
+                        fontSize = 16.sp,
                         fontFamily = FontFamily(Font(R.font.inter)),
                         fontWeight = FontWeight(500),
-                        color = grey,
-                    )
-                )
-                Spacer(modifier = modifier.height(8.dp))
-                Text(
-                    text = countIncorrect.toString(),
-                    style = TextStyle(
-                        fontSize = 20.sp,
-                        fontFamily = FontFamily(Font(R.font.inter)),
-                        fontWeight = FontWeight(500),
-                        color = black,
+                        color = white
                     )
                 )
             }
-        }
-        Spacer(modifier = modifier.height(43.dp))
-        Text(
-            text = stringResource(id = R.string.result),
-            style = TextStyle(
-                fontSize = 12.sp,
-                fontFamily = FontFamily(Font(R.font.inter)),
-                fontWeight = FontWeight(500),
-                color = grey,
-            )
-        )
-        Spacer(modifier = modifier.height(8.dp))
-        Text(
-            text = percent.toString(),
-            style = TextStyle(
-                fontSize = 20.sp,
-                fontFamily = FontFamily(Font(R.font.inter)),
-                fontWeight = FontWeight(500),
-                color = black,
-            )
-        )
-        Spacer(modifier = modifier.height(60.dp))
-        Button(
-            modifier = modifier
-                .fillMaxWidth(),
-            shape = RoundedCornerShape(20.dp),
-            colors = ButtonDefaults.buttonColors(
-                containerColor = white
-            ),
-            border = BorderStroke(width = 1.dp, color = orange),
-            contentPadding = PaddingValues(vertical = 16.dp),
-            onClick = {
-                event(MainEventRt137.OnChangeStatusMock(MockRt137.Start))
-            })
-        {
-            Text(
-                text = stringResource(id = R.string.again),
-                style = TextStyle(
-                    fontSize = 16.sp,
-                    fontFamily = FontFamily(Font(R.font.inter)),
-                    fontWeight = FontWeight(500),
-                    color = orange
-                )
-            )
-        }
-        Spacer(modifier = modifier.height(11.dp))
-        Button(
-            modifier = modifier
-                .fillMaxWidth(),
-            shape = RoundedCornerShape(20.dp),
-            colors = ButtonDefaults.buttonColors(
-                containerColor = orange
-            ),
-            contentPadding = PaddingValues(vertical = 16.dp),
-            onClick = {
-                event(MainEventRt137.OnChangeStatusMock(MockRt137.Selector))
-            })
-        {
-            Text(
-                text = stringResource(id = R.string.complete_quiz),
-                style = TextStyle(
-                    fontSize = 16.sp,
-                    fontFamily = FontFamily(Font(R.font.inter)),
-                    fontWeight = FontWeight(500),
-                    color = white
-                )
-            )
         }
     }
 }

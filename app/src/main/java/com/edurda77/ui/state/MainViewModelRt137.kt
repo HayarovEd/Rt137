@@ -19,7 +19,7 @@ class MainViewModelRt137 @Inject constructor(
     private var _state = MutableStateFlow(MainStateRt137())
     val state = _state.asStateFlow()
 
-    /*init {
+    init {
         viewModelScope.launch {
             val savedUrl = remoteRepositoryRt137.getSharedUrl()
             if (savedUrl.isNullOrBlank()) {
@@ -33,7 +33,7 @@ class MainViewModelRt137 @Inject constructor(
                     .updateStateUI()
             }
         }
-    }*/
+    }
 
 
     private suspend fun getData() {

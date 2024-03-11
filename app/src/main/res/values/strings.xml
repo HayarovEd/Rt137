@@ -2,5 +2,11 @@
     <string name="app_name">Международные спорт матчи</string>
     <string name="go_loading">Идет загрузка …</string>
 
+    <string name="put">Поставить</string>
+    <string name="eighteen_plus">18+</string>
+    <string name="warning_put">Важно помнить, что ставки могут стоить вам дорого, поэтому играйте ответственно и рассмотрительно!</string>
+    <string name="tournaments">Турниры</string>
+    <string name="quiz">КВИЗ</string>
+
 
 </resources>

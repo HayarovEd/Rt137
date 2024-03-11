@@ -8,9 +8,10 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
 @HiltViewModel
-class MainViewModelRt137 : ViewModel() {
+class MainViewModelRt137 @Inject constructor() : ViewModel() {
     private var _state = MutableStateFlow(MainStateRt137())
     val state = _state.asStateFlow()
 
@@ -55,7 +56,7 @@ class MainViewModelRt137 : ViewModel() {
                 )
                     .updateStateUI()
             }
-            if (_state.value.currentNumberTask+1 == tasks.size) {
+            if (_state.value.currentNumberTask == tasks.size) {
                 _state.value.copy(
                     applicationRt137State = ApplicationRt137State.Mock(MockRt137.ResultQuiz)
                 )

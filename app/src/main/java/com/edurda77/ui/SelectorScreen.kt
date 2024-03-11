@@ -77,7 +77,7 @@ fun SelectorScreen(
                             containerColor = orange
                         ),
                         contentPadding = PaddingValues(vertical = 12.dp),
-                        onClick = { /*TODO*/ })
+                        onClick = {  })
                     {
                         Text(
                             text = stringResource(id = R.string.put),

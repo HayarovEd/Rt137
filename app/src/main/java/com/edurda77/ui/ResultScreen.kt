@@ -31,6 +31,8 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.edurda77.R
 import com.edurda77.domain.model.tasks
+import com.edurda77.ui.state.MainEventRt137
+import com.edurda77.ui.state.MockRt137
 import com.edurda77.ui.theme.black
 import com.edurda77.ui.theme.grey
 import com.edurda77.ui.theme.orange
@@ -41,14 +43,15 @@ fun ResultScreen(
     modifier: Modifier = Modifier,
     countCorrect: Int,
     countIncorrect: Int,
-    percent: Double
+    percent: Double,
+    event: (MainEventRt137) -> Unit
 ) {
-    Column (
+    Column(
         modifier = modifier
             .fillMaxSize()
             .background(color = white)
             .padding(24.dp)
-    ){
+    ) {
         Text(
             modifier = modifier.fillMaxWidth(),
             text = stringResource(id = R.string.good_job),
@@ -65,7 +68,8 @@ fun ResultScreen(
             modifier = modifier.fillMaxWidth(),
             painter = painterResource(id = R.drawable.image_result),
             contentDescription = "",
-            contentScale = ContentScale.FillWidth)
+            contentScale = ContentScale.FillWidth
+        )
         Spacer(modifier = modifier.height(47.dp))
         Text(
             text = stringResource(id = R.string.right_answers),
@@ -77,11 +81,11 @@ fun ResultScreen(
             )
         )
         Spacer(modifier = modifier.height(33.dp))
-        Row (
+        Row(
             modifier = modifier.fillMaxWidth(),
             verticalAlignment = Alignment.CenterVertically
-        ){
-            Column (
+        ) {
+            Column(
                 modifier = modifier.weight(1f)
             ) {
                 Text(
@@ -104,7 +108,7 @@ fun ResultScreen(
                     )
                 )
             }
-            Column (
+            Column(
                 modifier = modifier.weight(1f)
             ) {
                 Text(
@@ -159,7 +163,8 @@ fun ResultScreen(
             border = BorderStroke(width = 1.dp, color = orange),
             contentPadding = PaddingValues(vertical = 16.dp),
             onClick = {
-
+                event(MainEventRt137.OnChangeStatusMock(MockRt137.Quiz))
+                event(MainEventRt137.ResetQuiz)
             })
         {
             Text(
@@ -182,7 +187,7 @@ fun ResultScreen(
             ),
             contentPadding = PaddingValues(vertical = 16.dp),
             onClick = {
-
+                event(MainEventRt137.OnChangeStatusMock(MockRt137.Selector))
             })
         {
             Text(
@@ -204,5 +209,6 @@ private fun ViewQuizScreen() {
     ResultScreen(
         countCorrect = 7,
         countIncorrect = 3,
-        percent = 70.0)
+        percent = 70.0,
+        event = {})
 }

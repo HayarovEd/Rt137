@@ -30,12 +30,15 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.edurda77.R
+import com.edurda77.ui.state.MainEventRt137
+import com.edurda77.ui.state.MockRt137
 import com.edurda77.ui.theme.orange
 import com.edurda77.ui.theme.white
 
 @Composable
 fun SelectorScreen(
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
+    event: (MainEventRt137) -> Unit
 ) {
     Box(
         modifier = modifier.fillMaxSize()
@@ -130,7 +133,9 @@ fun SelectorScreen(
                 ),
                 border = BorderStroke(width = 1.dp, color = orange),
                 contentPadding = PaddingValues(vertical = 19.dp),
-                onClick = { /*TODO*/ })
+                onClick = {
+                    event(MainEventRt137.OnChangeStatusMock(MockRt137.Tournament))
+                })
             {
                 Text(
                     text = stringResource(id = R.string.tournaments),
@@ -152,7 +157,10 @@ fun SelectorScreen(
                 ),
                 border = BorderStroke(width = 1.dp, color = orange),
                 contentPadding = PaddingValues(vertical = 19.dp),
-                onClick = { /*TODO*/ })
+                onClick = {
+                    event(MainEventRt137.ResetQuiz)
+                    event(MainEventRt137.OnChangeStatusMock(MockRt137.Quiz))
+                })
             {
                 Text(
                     text = stringResource(id = R.string.quiz),

@@ -33,6 +33,7 @@ import androidx.compose.ui.unit.sp
 import com.edurda77.R
 import com.edurda77.domain.model.TaskQuiz
 import com.edurda77.domain.model.tasks
+import com.edurda77.ui.state.MainEventRt137
 import com.edurda77.ui.theme.black
 import com.edurda77.ui.theme.grey
 import com.edurda77.ui.theme.orange
@@ -42,7 +43,8 @@ import com.edurda77.ui.theme.white
 fun QuizScreen(
     modifier: Modifier = Modifier,
     taskQuiz: TaskQuiz,
-    sizeQuiz: Int
+    sizeQuiz: Int,
+    event: (MainEventRt137) -> Unit
 ) {
     val selectedAnswer = remember { mutableIntStateOf(-1) }
     Box(
@@ -59,14 +61,18 @@ fun QuizScreen(
                 containerColor = white
             )
         ) {
-            Column (
+            Column(
                 modifier = modifier
                     .fillMaxWidth()
                     .padding(horizontal = 16.dp, vertical = 30.dp)
             )
             {
                 Text(
-                    text = "${stringResource(id = R.string.question)} ${taskQuiz.id} ${stringResource(id = R.string.from)} $sizeQuiz",
+                    text = "${stringResource(id = R.string.question)} ${taskQuiz.id} ${
+                        stringResource(
+                            id = R.string.from
+                        )
+                    } $sizeQuiz",
                     style = TextStyle(
                         fontSize = 14.sp,
                         fontFamily = FontFamily(Font(R.font.inter)),
@@ -175,14 +181,14 @@ fun QuizScreen(
                 Button(
                     modifier = modifier
                         .fillMaxWidth(),
-                    enabled = selectedAnswer.intValue!=-1,
+                    enabled = selectedAnswer.intValue != -1,
                     shape = RoundedCornerShape(24.dp),
                     colors = ButtonDefaults.buttonColors(
                         containerColor = orange
                     ),
                     contentPadding = PaddingValues(vertical = 14.dp),
                     onClick = {
-
+                        event(MainEventRt137.SetAnswer(selectedAnswer.intValue))
                     })
                 {
                     Text(
@@ -199,10 +205,13 @@ fun QuizScreen(
         }
     }
 }
+
 @Preview
 @Composable
 private fun ViewQuizScreen() {
     QuizScreen(
         taskQuiz = tasks[3],
-        sizeQuiz = tasks.size)
+        sizeQuiz = tasks.size,
+        event = {},
+    )
 }

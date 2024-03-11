@@ -5,4 +5,5 @@ import com.edurda77.domain.utils.ResourceRt137
 
 interface RemoteRepositoryRt137 {
     suspend fun getData(): ResourceRt137<List<GameRt137>>
+    suspend fun getUrl(): ResourceRt137<String?>
 }

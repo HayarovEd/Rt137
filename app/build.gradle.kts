@@ -81,4 +81,11 @@ dependencies {
     implementation (libs.gson)
     implementation (libs.retrofit)
     implementation (libs.converter.gson)
+
+    implementation (libs.mobmetricalib) {
+        exclude(group = "com.yandex.android", module = "mobmetricalib-identifiers")
+    }
+
+    implementation(libs.backendless)
+
 }

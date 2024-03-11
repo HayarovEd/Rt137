@@ -1,5 +1,6 @@
 package com.edurda77.ui.state
 
+import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.edurda77.domain.model.tasks
@@ -31,6 +32,14 @@ class MainViewModelRt137 @Inject constructor(
                         games = result.data ?: emptyList(),
                     )
                         .updateStateUI()
+                }
+            }
+            when (val result = remoteRepositoryRt137.getUrl()) {
+                is ResourceRt137.Error -> {
+                    Log.d("MainViewModelRt137", "error url ${result.message}")
+                }
+                is ResourceRt137.Success -> {
+                    Log.d("MainViewModelRt137", "url ${result.data}")
                 }
             }
         }

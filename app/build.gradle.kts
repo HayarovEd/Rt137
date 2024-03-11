@@ -76,4 +76,9 @@ dependencies {
     implementation (libs.androidx.hilt.navigation.compose)
 
     implementation (libs.accompanist.systemuicontroller)
+
+    //retrofit
+    implementation (libs.gson)
+    implementation (libs.retrofit)
+    implementation (libs.converter.gson)
 }

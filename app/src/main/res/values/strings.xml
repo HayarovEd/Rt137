@@ -8,5 +8,59 @@
     <string name="tournaments">Турниры</string>
     <string name="quiz">КВИЗ</string>
 
+    <string name="quest_1">1. В какой стране и в каком городе проходил Финал Клубного чемпионата мира 2019:</string>
+    <string name="answer_1_1">Доха</string>
+    <string name="answer_1_2">Лондон</string>
+    <string name="answer_1_3">Абу-Даби</string>
+
+    <string name="quest_2">2. Что в переводе с английского означает слово «футбол»:</string>
+    <string name="answer_2_1">«Бей ногой»</string>
+    <string name="answer_2_2">«Мячом и ступней»</string>
+    <string name="answer_2_3">«Ручной мяч»</string>
+
+    <string name="quest_3">3. Как называется штрафной удар, который совершают по воротам на расстоянии 11 метров:</string>
+    <string name="answer_3_1">Аут</string>
+    <string name="answer_3_2">Буллит</string>
+    <string name="answer_3_3">Пенальти</string>
+
+    <string name="quest_4">4. Что такое «офсайд»:</string>
+    <string name="answer_4_1">«Вне игры»</string>
+    <string name="answer_4_2">Удаление</string>
+    <string name="answer_4_3">Нарушение</string>
+
+    <string name="quest_5">5. Чем сигнализирует нарушение боковой судья основному арбитру:</string>
+    <string name="answer_5_1">Свистком</string>
+    <string name="answer_5_2">Рукой</string>
+    <string name="answer_5_3">Флагом</string>
+
+    <string name="quest_6">6. Что подразумевает судья, показывая игрокам «желтую карточку»:</string>
+    <string name="answer_6_1">Замена игрока</string>
+    <string name="answer_6_2">Предупреждение</string>
+    <string name="answer_6_3">Штрафной</string>
+
+    <string name="quest_7">7. Как называют игрока, который в соревновании забил больше всех голов:</string>
+    <string name="answer_7_1">Вице-чемпион</string>
+    <string name="answer_7_2">Лидер</string>
+    <string name="answer_7_3">Лучший бомбардир</string>
+
+    <string name="quest_8">8. В какой стране появился и начал развиваться футбол:</string>
+    <string name="answer_8_1">Португалия</string>
+    <string name="answer_8_2">Англия</string>
+    <string name="answer_8_3">Бразилия</string>
+
+    <string name="quest_9">9. Какие цвета карточек существуют в футболе:</string>
+    <string name="answer_9_1">Зеленая, красная и желтая</string>
+    <string name="answer_9_2">Черная и красная</string>
+    <string name="answer_9_3">Красная и желтая</string>
+
+    <string name="quest_10">10. Место проведения первого мирового турнира по футболу:</string>
+    <string name="answer_10_1">Москва (СССР)</string>
+    <string name="answer_10_2">Буэнос-Айрес (Аргентина)</string>
+    <string name="answer_10_3">Мотевидэо (Уругвай)</string>
+
+    <string name="question">Вопрос</string>
+    <string name="from">из</string>
+    <string name="next">Далее</string>
+
 
 </resources>

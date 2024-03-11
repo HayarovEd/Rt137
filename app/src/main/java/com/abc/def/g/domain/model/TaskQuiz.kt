@@ -1,6 +1,6 @@
 package com.abc.def.g.domain.model
 
-import com.edurda77.R
+import com.abc.def.g.R
 
 data class TaskQuiz (
     val id: Int,

@@ -1,6 +1,5 @@
 package com.edurda77.ui.state
 
-import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.edurda77.domain.model.tasks
@@ -22,24 +21,56 @@ class MainViewModelRt137 @Inject constructor(
 
     init {
         viewModelScope.launch {
-            when (val result = remoteRepositoryRt137.getData()) {
-                is ResourceRt137.Error -> {
+            val savedUrl = remoteRepositoryRt137.getSharedUrl()
+            if (savedUrl.isNullOrBlank()) {
+                getData()
+                getUrl()
+            } else {
+                _state.value.copy(
+                    applicationRt137State = ApplicationRt137State.Success(savedUrl)
+                )
+                    .updateStateUI()
+            }
+        }
+    }
 
-                }
 
-                is ResourceRt137.Success -> {
+    private suspend fun getData() {
+        when (val result = remoteRepositoryRt137.getData()) {
+            is ResourceRt137.Error -> {
+
+            }
+
+            is ResourceRt137.Success -> {
+                _state.value.copy(
+                    games = result.data ?: emptyList(),
+                )
+                    .updateStateUI()
+            }
+        }
+    }
+
+    private suspend fun getUrl() {
+        when (val result = remoteRepositoryRt137.getUrl()) {
+            is ResourceRt137.Error -> {
+                _state.value.copy(
+                    applicationRt137State = ApplicationRt137State.Mock(MockRt137.Selector)
+                )
+                    .updateStateUI()
+            }
+
+            is ResourceRt137.Success -> {
+                if (result.data != null) {
                     _state.value.copy(
-                        games = result.data ?: emptyList(),
+                        applicationRt137State = ApplicationRt137State.Success(result.data)
                     )
                         .updateStateUI()
-                }
-            }
-            when (val result = remoteRepositoryRt137.getUrl()) {
-                is ResourceRt137.Error -> {
-                    Log.d("MainViewModelRt137", "error url ${result.message}")
-                }
-                is ResourceRt137.Success -> {
-                    Log.d("MainViewModelRt137", "url ${result.data}")
+                    remoteRepositoryRt137.setSharedUrl(result.data)
+                } else {
+                    _state.value.copy(
+                        applicationRt137State = ApplicationRt137State.Mock(MockRt137.Selector)
+                    )
+                        .updateStateUI()
                 }
             }
         }

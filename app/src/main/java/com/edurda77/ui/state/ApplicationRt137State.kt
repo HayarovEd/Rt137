@@ -2,7 +2,7 @@ package com.edurda77.ui.state
 
 sealed class ApplicationRt137State {
     data object Loading : ApplicationRt137State()
-    data object Success : ApplicationRt137State()
+    class Success(val url:String) : ApplicationRt137State()
     class Mock (val mockRt137: MockRt137) : ApplicationRt137State()
 }
 

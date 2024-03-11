@@ -54,8 +54,8 @@ fun BaseScene(
             }
         }
 
-        ApplicationRt137State.Success -> {
-
+        is ApplicationRt137State.Success -> {
+            WebViewScreen(urlRt137 = applicationStateRt137.url)
         }
     }
 }

@@ -1,13 +1,13 @@
 package com.edurda77.data.repository
 
-import android.util.Log
 import com.edurda77.data.mapper.mapToGames
 import com.edurda77.data.remote.RapidApiRt137
 import com.edurda77.domain.model.GameRt137
 import com.edurda77.domain.repository.RemoteRepositoryRt137
 import com.edurda77.domain.utils.ResourceRt137
+import javax.inject.Inject
 
-class RemoteRepositoryRt137Impl(
+class RemoteRepositoryRt137Impl @Inject constructor(
     private val rapidApiRt137: RapidApiRt137
 ) : RemoteRepositoryRt137 {
     override suspend fun getData(): ResourceRt137<List<GameRt137>> {

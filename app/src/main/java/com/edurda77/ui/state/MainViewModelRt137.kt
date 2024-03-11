@@ -3,6 +3,8 @@ package com.edurda77.ui.state
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.edurda77.domain.model.tasks
+import com.edurda77.domain.repository.RemoteRepositoryRt137
+import com.edurda77.domain.utils.ResourceRt137
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -11,9 +13,28 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class MainViewModelRt137 @Inject constructor() : ViewModel() {
+class MainViewModelRt137 @Inject constructor(
+    private val remoteRepositoryRt137: RemoteRepositoryRt137,
+) : ViewModel() {
     private var _state = MutableStateFlow(MainStateRt137())
     val state = _state.asStateFlow()
+
+    init {
+        viewModelScope.launch {
+            when (val result = remoteRepositoryRt137.getData()) {
+                is ResourceRt137.Error -> {
+
+                }
+
+                is ResourceRt137.Success -> {
+                    _state.value.copy(
+                        games = result.data ?: emptyList(),
+                    )
+                        .updateStateUI()
+                }
+            }
+        }
+    }
 
     fun onEvent(event: MainEventRt137) {
         when (event) {

@@ -70,5 +70,7 @@
     <string name="again">Заново</string>
     <string name="complete_quiz">Завершить квиз</string>
 
+    <string name="statistic">Центр статистики</string>
+
 
 </resources>

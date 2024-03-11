@@ -112,7 +112,7 @@ fun QuizScreen(
                         style = TextStyle(
                             fontSize = 20.sp,
                             fontFamily = FontFamily(Font(R.font.inter)),
-                            fontWeight = if (selectedAnswer.value == taskQuiz.answer1) FontWeight(
+                            fontWeight = if (selectedAnswer.intValue == taskQuiz.answer1) FontWeight(
                                 500
                             ) else FontWeight(400),
                             color = black

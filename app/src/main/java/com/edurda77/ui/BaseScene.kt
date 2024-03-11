@@ -17,7 +17,7 @@ fun BaseScene(
 
     when (val applicationStateRt137 = state.value.applicationRt137State) {
         ApplicationRt137State.Loading -> {
-
+            LoadingScreen()
         }
 
         is ApplicationRt137State.Mock -> {
@@ -44,8 +44,12 @@ fun BaseScene(
                         event = event,
                     )
                 }
-                MockRt137.Tournament -> {
 
+                MockRt137.Tournament -> {
+                    TournamentScreen(
+                        games = state.value.games,
+                        event = event,
+                    )
                 }
             }
         }

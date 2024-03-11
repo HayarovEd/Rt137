@@ -7,4 +7,6 @@ data class GameRt137(
     val awayScore: Int,
     val homeSymbol: String,
     val awaySymbol: String,
-)
+) {
+    val isHomeWin = homeScore > awayScore
+}

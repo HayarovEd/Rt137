@@ -41,6 +41,7 @@ import com.abc.def.g.ui.state.MainEventRt137
 import com.abc.def.g.ui.state.MockRt137
 import com.abc.def.g.ui.theme.black
 import com.abc.def.g.ui.theme.grey
+import com.abc.def.g.ui.theme.orange
 import com.abc.def.g.ui.theme.white
 
 @Composable
@@ -120,20 +121,18 @@ fun TournamentScreen(
                     verticalArrangement = Arrangement.spacedBy(15.dp)
                 ) {
                     items(games) { game ->
-                        val colorAway = Color.Companion.fromHex(game.awayColor)
-                        val colorHome = Color.Companion.fromHex(game.homeColor)
+
                         Card(
                             modifier = modifier
                                 .fillMaxWidth(),
                             colors = CardDefaults.cardColors(
-                                containerColor = white
+                                containerColor = orange
                             ),
                             shape = RoundedCornerShape(16.dp),
                             border = BorderStroke(1.dp, grey),
                         ) {
                             Column(
                                 modifier = modifier
-                                    .background(brush = Brush.verticalGradient(listOf(colorAway, colorHome)))
                                     .fillMaxWidth()
                                     .padding(24.dp),
                             ) {

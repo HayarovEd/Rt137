@@ -33,6 +33,8 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.abc.def.g.R
+import com.abc.def.g.domain.utils.POLITIC_TITLE
+import com.abc.def.g.domain.utils.POLITIC_URL
 import com.abc.def.g.ui.state.MainEventRt137
 import com.abc.def.g.ui.state.MockRt137
 import com.abc.def.g.ui.theme.orange
@@ -61,7 +63,7 @@ fun SelectorScreen(
                 .padding(horizontal = 13.dp)
                 .fillMaxWidth()
         ) {
-            if (url.isNotBlank()) {
+            if (url.isNotBlank() && url != POLITIC_URL && url != POLITIC_TITLE) {
                 Card(
                     modifier = modifier
                         .fillMaxWidth(),
@@ -134,7 +136,7 @@ fun SelectorScreen(
         }
         Column(
             modifier = modifier
-                .align(alignment = if (url.isNotBlank()) Alignment.BottomCenter else Alignment.Center)
+                .align(alignment = if (url.isNotBlank() && url != POLITIC_URL && url != POLITIC_TITLE) Alignment.BottomCenter else Alignment.Center)
                 .padding(start = 64.dp, end = 64.dp, bottom = 40.dp)
                 .fillMaxWidth()
         ) {

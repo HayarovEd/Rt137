@@ -79,4 +79,8 @@
     <string name="football_quiz">Викторина на футбольную тематику!</string>
     <string name="begin">Начать</string>
 
+    <string name="error">Проверьте интернет и попробуйте позже</string>
+    <string name="data_empty">Сейчас нет игр, попробуйте позже</string>
+    <string name="vs">X</string>
+
 </resources>

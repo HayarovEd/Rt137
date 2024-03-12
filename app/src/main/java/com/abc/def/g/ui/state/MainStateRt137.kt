@@ -9,7 +9,8 @@ data class MainStateRt137(
     val incorrect: Int = 0,
     val currentNumberTask: Int = 0,
     val games: List<GameRt137> = emptyList(),
-    val url: String = ""
+    val url: String = "",
+    val error: String? = null
 ) {
     val percent = correct / tasks.size.toDouble()
 }

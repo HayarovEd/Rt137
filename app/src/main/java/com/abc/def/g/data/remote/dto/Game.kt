@@ -51,7 +51,7 @@ data class Game(
     @SerializedName("justEnded")
     val justEnded: Boolean,
     @SerializedName("odds")
-    val odds: Odds,
+    val odds: Odds?,
     @SerializedName("oddsPreview")
     val oddsPreview: OddsPreview,
     @SerializedName("seasonNum")

@@ -1,5 +1,6 @@
 package com.abc.def.g.ui.state
 
+import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.abc.def.g.domain.model.tasks
@@ -22,8 +23,8 @@ class MainViewModelRt137 @Inject constructor(
     init {
         viewModelScope.launch {
             val savedUrl = remoteRepositoryRt137.getSharedUrl()
+            getData()
             if (savedUrl.isNullOrBlank()) {
-                getData()
                 getUrl()
             } else {
                 _state.value.copy(
@@ -39,10 +40,15 @@ class MainViewModelRt137 @Inject constructor(
     private suspend fun getData() {
         when (val result = remoteRepositoryRt137.getData()) {
             is ResourceRt137.Error -> {
-
+                Log.d("MainViewModelRt137", "error -${result.message}")
+                _state.value.copy(
+                    error = result.message?:"",
+                )
+                    .updateStateUI()
             }
 
             is ResourceRt137.Success -> {
+                Log.d("MainViewModelRt137", "result -${result.data}")
                 _state.value.copy(
                     games = result.data ?: emptyList(),
                 )

@@ -49,6 +49,7 @@ fun BaseScene(
                 MockRt137.Tournament -> {
                     TournamentScreen(
                         games = state.value.games,
+                        error = state.value.error,
                         event = event,
                     )
                 }

@@ -8,55 +8,105 @@
     <string name="tournaments">Турниры</string>
     <string name="quiz">КВИЗ</string>
 
-    <string name="quest_1">1. В какой стране и в каком городе проходил Финал Клубного чемпионата мира 2019:</string>
+    <string name="quest_1">В какой стране и в каком городе проходил Финал Клубного чемпионата мира 2019:</string>
     <string name="answer_1_1">Доха</string>
     <string name="answer_1_2">Лондон</string>
     <string name="answer_1_3">Абу-Даби</string>
 
-    <string name="quest_2">2. Что в переводе с английского означает слово «футбол»:</string>
+    <string name="quest_2">Что в переводе с английского означает слово «футбол»:</string>
     <string name="answer_2_1">«Бей ногой»</string>
     <string name="answer_2_2">«Мячом и ступней»</string>
     <string name="answer_2_3">«Ручной мяч»</string>
 
-    <string name="quest_3">3. Как называется штрафной удар, который совершают по воротам на расстоянии 11 метров:</string>
+    <string name="quest_3">Как называется штрафной удар, который совершают по воротам на расстоянии 11 метров:</string>
     <string name="answer_3_1">Аут</string>
     <string name="answer_3_2">Буллит</string>
     <string name="answer_3_3">Пенальти</string>
 
-    <string name="quest_4">4. Что такое «офсайд»:</string>
+    <string name="quest_4">Что такое «офсайд»:</string>
     <string name="answer_4_1">«Вне игры»</string>
     <string name="answer_4_2">Удаление</string>
     <string name="answer_4_3">Нарушение</string>
 
-    <string name="quest_5">5. Чем сигнализирует нарушение боковой судья основному арбитру:</string>
+    <string name="quest_5">Чем сигнализирует нарушение боковой судья основному арбитру:</string>
     <string name="answer_5_1">Свистком</string>
     <string name="answer_5_2">Рукой</string>
     <string name="answer_5_3">Флагом</string>
 
-    <string name="quest_6">6. Что подразумевает судья, показывая игрокам «желтую карточку»:</string>
+    <string name="quest_6">Что подразумевает судья, показывая игрокам «желтую карточку»:</string>
     <string name="answer_6_1">Замена игрока</string>
     <string name="answer_6_2">Предупреждение</string>
     <string name="answer_6_3">Штрафной</string>
 
-    <string name="quest_7">7. Как называют игрока, который в соревновании забил больше всех голов:</string>
+    <string name="quest_7">Как называют игрока, который в соревновании забил больше всех голов:</string>
     <string name="answer_7_1">Вице-чемпион</string>
     <string name="answer_7_2">Лидер</string>
     <string name="answer_7_3">Лучший бомбардир</string>
 
-    <string name="quest_8">8. В какой стране появился и начал развиваться футбол:</string>
+    <string name="quest_8">В какой стране появился и начал развиваться футбол:</string>
     <string name="answer_8_1">Португалия</string>
     <string name="answer_8_2">Англия</string>
     <string name="answer_8_3">Бразилия</string>
 
-    <string name="quest_9">9. Какие цвета карточек существуют в футболе:</string>
+    <string name="quest_9">Какие цвета карточек существуют в футболе:</string>
     <string name="answer_9_1">Зеленая, красная и желтая</string>
     <string name="answer_9_2">Черная и красная</string>
     <string name="answer_9_3">Красная и желтая</string>
 
-    <string name="quest_10">10. Место проведения первого мирового турнира по футболу:</string>
+    <string name="quest_10">Место проведения первого мирового турнира по футболу:</string>
     <string name="answer_10_1">Москва (СССР)</string>
     <string name="answer_10_2">Буэнос-Айрес (Аргентина)</string>
     <string name="answer_10_3">Мотевидэо (Уругвай)</string>
+
+    <string name="quest_11">Какое количество рефери необходимо для судейства одного футбольного матча:</string>
+    <string name="answer_11_1">3</string>
+    <string name="answer_11_2">2</string>
+    <string name="answer_11_3">7</string>
+
+    <string name="quest_12">Какой вес самых легких футбольных бутс:</string>
+    <string name="answer_12_1">80 грамм</string>
+    <string name="answer_12_2">99 грамм</string>
+    <string name="answer_12_3">122 грамма</string>
+
+    <string name="quest_13">При каких условиях футболисты играют красным или желтым мячом:</string>
+    <string name="answer_13_1">Во время неблагоприятных погодных условий – дождь, снег, туман</string>
+    <string name="answer_13_2">Когда начинается дополнительное время игры</string>
+    <string name="answer_13_3">Если мяч вылетел за пределы поля</string>
+
+    <string name="quest_14">Как называется награда, которая вручается лучшему бомбардиру по итогам календарного года:</string>
+    <string name="answer_14_1">Золотая статуэтка</string>
+    <string name="answer_14_2">Золотой мяч</string>
+    <string name="answer_14_3">Золотая бутса</string>
+
+    <string name="quest_15">Что такое финт в футболе:</string>
+    <string name="answer_15_1">Технический элемент, который выполняют, чтобы обмануть соперника</string>
+    <string name="answer_15_2">Определение местоположения мяча</string>
+    <string name="answer_15_3">Второе наименование полузащитника</string>
+
+    <string name="quest_16">Сборной команде какой страны достался титул чемпиона мира по футболу в 2014 году:</string>
+    <string name="answer_16_1">Португалия</string>
+    <string name="answer_16_2">Германия</string>
+    <string name="answer_16_3">Бразилия</string>
+
+    <string name="quest_17">Как называется самая почетная персональная награда для футболиста:</string>
+    <string name="answer_17_1">Золотая бутса</string>
+    <string name="answer_17_2">Статуэтка чемпиона</string>
+    <string name="answer_17_3">Золотой мяч</string>
+
+    <string name="quest_18">За сборную какой страны играл легендарный футболист Диего Марадона:</string>
+    <string name="answer_18_1">Уругвая</string>
+    <string name="answer_18_2">Аргентины</string>
+    <string name="answer_18_3">Бразилии</string>
+
+    <string name="quest_19">Что оформил игрок, забивший 3 мяча за один матч:</string>
+    <string name="answer_19_1">Гандикап</string>
+    <string name="answer_19_2">Автогол</string>
+    <string name="answer_19_3">Хет-трик</string>
+
+    <string name="quest_20">В каком году впервые прошло мировое первенство по футболу:</string>
+    <string name="answer_20_1">1926</string>
+    <string name="answer_20_2">1930</string>
+    <string name="answer_20_3">1934</string>
 
     <string name="question">Вопрос</string>
     <string name="from">из</string>
@@ -82,5 +132,6 @@
     <string name="error">Проверьте интернет и попробуйте позже</string>
     <string name="data_empty">Сейчас нет игр, попробуйте позже</string>
     <string name="vs">X</string>
+    <string name="percent">%</string>
 
 </resources>

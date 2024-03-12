@@ -41,6 +41,7 @@ import com.abc.def.g.ui.theme.white
 @Composable
 fun QuizScreen(
     modifier: Modifier = Modifier,
+    currentNumber: Int,
     taskQuiz: TaskQuiz,
     sizeQuiz: Int,
     event: (MainEventRt137) -> Unit
@@ -68,7 +69,7 @@ fun QuizScreen(
             )
             {
                 Text(
-                    text = "${stringResource(id = R.string.question)} ${taskQuiz.id} ${
+                    text = "${stringResource(id = R.string.question)} $currentNumber ${
                         stringResource(
                             id = R.string.from
                         )
@@ -102,7 +103,7 @@ fun QuizScreen(
                         width = if (selectedAnswer.intValue == taskQuiz.answer1) 0.dp else 1.dp,
                         color = grey
                     ),
-                    contentPadding = PaddingValues(vertical = 16.dp),
+                    contentPadding = PaddingValues(vertical = 16.dp, horizontal = 10.dp),
                     onClick = {
                         selectedAnswer.intValue = taskQuiz.answer1
                     })
@@ -131,7 +132,7 @@ fun QuizScreen(
                         width = if (selectedAnswer.intValue == taskQuiz.answer2) 0.dp else 1.dp,
                         color = grey
                     ),
-                    contentPadding = PaddingValues(vertical = 16.dp),
+                    contentPadding = PaddingValues(vertical = 16.dp, horizontal = 10.dp),
                     onClick = {
                         selectedAnswer.intValue = taskQuiz.answer2
                     })
@@ -160,7 +161,7 @@ fun QuizScreen(
                         width = if (selectedAnswer.intValue == taskQuiz.answer3) 0.dp else 1.dp,
                         color = grey
                     ),
-                    contentPadding = PaddingValues(vertical = 16.dp),
+                    contentPadding = PaddingValues(vertical = 16.dp, horizontal = 10.dp),
                     onClick = {
                         selectedAnswer.intValue = taskQuiz.answer3
                     })
@@ -211,6 +212,7 @@ fun QuizScreen(
 private fun ViewQuizScreen() {
     QuizScreen(
         taskQuiz = tasks[3],
+        currentNumber = 1,
         sizeQuiz = tasks.size,
         event = {},
     )

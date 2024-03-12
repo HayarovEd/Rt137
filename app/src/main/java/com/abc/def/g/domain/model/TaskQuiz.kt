@@ -94,4 +94,85 @@ val tasks = listOf(
         answer3 = R.string.answer_10_3,
         rightAnswer = R.string.answer_10_2
     ),
+    TaskQuiz(
+        id = 11,
+        quest = R.string.quest_11,
+        answer1 = R.string.answer_11_1,
+        answer2 = R.string.answer_11_2,
+        answer3 = R.string.answer_11_3,
+        rightAnswer = R.string.answer_11_1
+    ),
+    TaskQuiz(
+        id = 12,
+        quest = R.string.quest_12,
+        answer1 = R.string.answer_12_1,
+        answer2 = R.string.answer_12_2,
+        answer3 = R.string.answer_12_3,
+        rightAnswer = R.string.answer_12_2
+    ),
+    TaskQuiz(
+        id = 13,
+        quest = R.string.quest_13,
+        answer1 = R.string.answer_13_1,
+        answer2 = R.string.answer_13_2,
+        answer3 = R.string.answer_13_3,
+        rightAnswer = R.string.answer_13_1
+    ),
+    TaskQuiz(
+        id = 14,
+        quest = R.string.quest_14,
+        answer1 = R.string.answer_14_1,
+        answer2 = R.string.answer_14_2,
+        answer3 = R.string.answer_14_3,
+        rightAnswer = R.string.answer_14_3
+    ),
+    TaskQuiz(
+        id = 15,
+        quest = R.string.quest_15,
+        answer1 = R.string.answer_15_1,
+        answer2 = R.string.answer_15_2,
+        answer3 = R.string.answer_15_3,
+        rightAnswer = R.string.answer_15_1
+    ),
+    TaskQuiz(
+        id = 16,
+        quest = R.string.quest_16,
+        answer1 = R.string.answer_16_1,
+        answer2 = R.string.answer_16_2,
+        answer3 = R.string.answer_16_3,
+        rightAnswer = R.string.answer_16_2
+    ),
+
+    TaskQuiz(
+        id = 17,
+        quest = R.string.quest_17,
+        answer1 = R.string.answer_17_1,
+        answer2 = R.string.answer_17_2,
+        answer3 = R.string.answer_17_3,
+        rightAnswer = R.string.answer_17_3
+    ),
+    TaskQuiz(
+        id = 18,
+        quest = R.string.quest_18,
+        answer1 = R.string.answer_18_1,
+        answer2 = R.string.answer_18_2,
+        answer3 = R.string.answer_18_3,
+        rightAnswer = R.string.answer_18_2
+    ),
+    TaskQuiz(
+        id = 19,
+        quest = R.string.quest_19,
+        answer1 = R.string.answer_19_1,
+        answer2 = R.string.answer_19_2,
+        answer3 = R.string.answer_19_3,
+        rightAnswer = R.string.answer_19_3
+    ),
+    TaskQuiz(
+        id = 20,
+        quest = R.string.quest_20,
+        answer1 = R.string.answer_20_1,
+        answer2 = R.string.answer_20_2,
+        answer3 = R.string.answer_20_3,
+        rightAnswer = R.string.answer_20_2
+    ),
 )

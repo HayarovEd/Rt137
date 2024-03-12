@@ -4,6 +4,7 @@ import android.content.Intent
 import android.net.Uri
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
@@ -66,7 +67,12 @@ fun SelectorScreen(
             if (url.isNotBlank() && url != POLITIC_URL && url != POLITIC_TITLE) {
                 Card(
                     modifier = modifier
-                        .fillMaxWidth(),
+                        .fillMaxWidth()
+                        .clickable {
+                            val uri = Uri.parse(url)
+                            val intent = Intent(Intent.ACTION_VIEW, uri)
+                            context.startActivity(intent)
+                        },
                     shape = RoundedCornerShape(24.dp),
                     border = BorderStroke(width = 3.dp, color = orange),
                     colors = CardDefaults.cardColors(

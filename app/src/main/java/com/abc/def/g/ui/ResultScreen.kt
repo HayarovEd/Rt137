@@ -150,7 +150,7 @@ fun ResultScreen(
             )
             Spacer(modifier = modifier.height(8.dp))
             Text(
-                text = percent.toString(),
+                text = "${percent*100} ${stringResource(id = R.string.percent)}",
                 style = TextStyle(
                     fontSize = 20.sp,
                     fontFamily = FontFamily(Font(R.font.inter)),

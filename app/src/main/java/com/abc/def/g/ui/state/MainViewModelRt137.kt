@@ -51,6 +51,7 @@ class MainViewModelRt137 @Inject constructor(
                 Log.d("MainViewModelRt137", "result -${result.data}")
                 _state.value.copy(
                     games = result.data ?: emptyList(),
+                    tasksQuiz = tasks.shuffled()
                 )
                     .updateStateUI()
             }
@@ -104,6 +105,7 @@ class MainViewModelRt137 @Inject constructor(
                     incorrect = 0,
                     correct = 0,
                     currentNumberTask = 0,
+
                 )
                     .updateStateUI()
             }
@@ -112,7 +114,7 @@ class MainViewModelRt137 @Inject constructor(
 
     private fun calculate(answer: Int) {
         viewModelScope.launch {
-            if (tasks[_state.value.currentNumberTask].rightAnswer == answer) {
+            if (_state.value.tasksQuiz[_state.value.currentNumberTask].rightAnswer == answer) {
                 _state.value.copy(
                     correct = _state.value.correct + 1,
                     currentNumberTask = _state.value.currentNumberTask + 1

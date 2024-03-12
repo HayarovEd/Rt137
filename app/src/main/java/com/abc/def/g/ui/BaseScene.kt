@@ -24,8 +24,9 @@ fun BaseScene(
             when (applicationStateRt137.mockRt137) {
                 MockRt137.Quiz -> {
                     QuizScreen(
-                        taskQuiz = tasks[state.value.currentNumberTask],
+                        taskQuiz = state.value.tasksQuiz[state.value.currentNumberTask],
                         sizeQuiz = tasks.size,
+                        currentNumber = state.value.currentNumberTask+1,
                         event = event,
                     )
                 }

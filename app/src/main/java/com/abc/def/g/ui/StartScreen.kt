@@ -190,13 +190,3 @@ fun StartScreen(
         }
     }
 }
-
-@Preview
-@Composable
-private fun ViewQuizScreen() {
-    QuizScreen(
-        taskQuiz = tasks[3],
-        sizeQuiz = tasks.size,
-        event = {},
-    )
-}

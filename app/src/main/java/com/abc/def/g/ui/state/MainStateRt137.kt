@@ -1,6 +1,7 @@
 package com.abc.def.g.ui.state
 
 import com.abc.def.g.domain.model.GameRt137
+import com.abc.def.g.domain.model.TaskQuiz
 import com.abc.def.g.domain.model.tasks
 
 data class MainStateRt137(
@@ -10,7 +11,8 @@ data class MainStateRt137(
     val currentNumberTask: Int = 0,
     val games: List<GameRt137> = emptyList(),
     val url: String = "",
+    val tasksQuiz: List<TaskQuiz> = tasks,
     val error: String? = null
 ) {
-    val percent = correct / tasks.size.toDouble()
+    val percent = correct / tasksQuiz.size.toDouble()
 }

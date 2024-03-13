@@ -6,11 +6,11 @@ plugins {
 }
 
 android {
-    namespace = "com.abc.def.g"
+    namespace = "com.mez.hdu.narsports.mat.chs.mznm"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.abc.def.g"
+        applicationId = "com.mez.hdu.narsports.mat.chs.mznm"
         minSdk = 24
         targetSdk = 34
         versionCode = 1
@@ -25,9 +25,9 @@ android {
     android.signingConfigs {
         create("release") {
             storeFile = file("keystore.jks")
-            storePassword = "ВАШ_ПАРОЛЬ"
+            storePassword = "com.mez.hdu"
             keyAlias = "key0"
-            keyPassword = "ВАШ_ПАРОЛЬ"
+            keyPassword = "com.mez.hdu"
             storeType = "jks"
         }
     }

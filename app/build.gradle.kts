@@ -22,6 +22,16 @@ android {
         }
     }
 
+    android.signingConfigs {
+        create("release") {
+            storeFile = file("keystore.jks")
+            storePassword = "ВАШ_ПАРОЛЬ"
+            keyAlias = "key0"
+            keyPassword = "ВАШ_ПАРОЛЬ"
+            storeType = "jks"
+        }
+    }
+
     buildTypes {
         release {
             isMinifyEnabled = false
@@ -29,6 +39,7 @@ android {
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
+            signingConfig = signingConfigs.getByName("release")
         }
     }
     compileOptions {
